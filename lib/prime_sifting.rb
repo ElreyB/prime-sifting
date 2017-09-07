@@ -7,6 +7,11 @@ class PrimeSifting
     @prime_numbers = prime_sifter
   end
 
+
+  def to_s
+    "The prime numbers from 2 to #{@count_to} are: #{prime_list_to_s}"
+  end
+
 private
   def numbers
     numbers = []
@@ -28,5 +33,11 @@ private
       i += 1
     end
     @prime_numbers = prime_numbers.concat(list)
+  end
+
+  def prime_list_to_s
+    prime_string = ""
+    @prime_numbers.each{ |number| prime_string << number.to_s + " " }
+    prime_string
   end
 end
