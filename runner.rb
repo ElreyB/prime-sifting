@@ -1,7 +1,6 @@
 require_relative 'lib/prime_sifting'
 
-
-puts "Enter a number from 2 to 100. Type 'done' or 0 to end"
+puts "Enter a whole number between 2 and 1000. Type 'done' or 0 to end program."
 
 2.times{puts "========================================="}
 
