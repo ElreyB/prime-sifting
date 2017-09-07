@@ -1,14 +1,10 @@
 class PrimeSifting
-  attr_reader :count_to, :prime_numbers, :list_of_numbers
+  attr_reader :count_to, :list_of_numbers, :prime_numbers
 
   def initialize(count_to)
     @count_to = count_to
     @list_of_numbers = numbers
-    @prime_numbers = [2]
-  end
-
-  def prime_sifting
-    
+    @prime_numbers = prime_sifter
   end
 
 private
@@ -18,5 +14,19 @@ private
       numbers << number
     end
     numbers
+  end
+
+  def prime_sifter
+    list = @list_of_numbers
+    prime_numbers = []
+    prime = 2
+    i = 0
+    while i <= list.length
+      prime_numbers << prime
+       list = list.reject{|number| number % prime == 0}
+      prime = list[0]
+      i += 1
+    end
+    @prime_numbers = prime_numbers.concat(list)
   end
 end
